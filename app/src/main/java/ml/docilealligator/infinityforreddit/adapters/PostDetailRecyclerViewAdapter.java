@@ -1127,14 +1127,7 @@ public class PostDetailRecyclerViewAdapter extends RecyclerView.Adapter<Recycler
                         mPost.getSubredditName());
                 mActivity.startActivity(intent);
             });
-            mSubredditTextView.setOnLongClickListener(view -> {
-                Intent intent;
-                intent = new Intent(mActivity, ViewSubredditDetailActivity.class);
-                intent.putExtra(ViewSubredditDetailActivity.EXTRA_SUBREDDIT_NAME_KEY,
-                        mPost.getSubredditName());
-                intent.setFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NEW_DOCUMENT);
-                mActivity.startActivity(intent);
-            });
+        
             
 
             mUserTextView.setOnClickListener(view -> {
