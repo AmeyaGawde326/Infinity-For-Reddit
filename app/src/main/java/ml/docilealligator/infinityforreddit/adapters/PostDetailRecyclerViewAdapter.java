@@ -1119,12 +1119,20 @@ public class PostDetailRecyclerViewAdapter extends RecyclerView.Adapter<Recycler
             this.mShareButton = mShareButton;
 
             mIconGifImageView.setOnClickListener(view -> mSubredditTextView.performClick());
-
             mSubredditTextView.setOnClickListener(view -> {
                 Intent intent;
                 intent = new Intent(mActivity, ViewSubredditDetailActivity.class);
                 intent.putExtra(ViewSubredditDetailActivity.EXTRA_SUBREDDIT_NAME_KEY,
                         mPost.getSubredditName());
+                mActivity.startActivity(intent);
+            });
+            mIconGifImageView.setOnLongClickListener(view -> mSubredditTextView.performClick());
+            mSubredditTextView.setOnClickListener(view -> {
+                Intent intent;
+                intent = new Intent(mActivity, ViewSubredditDetailActivity.class);
+                intent.putExtra(ViewSubredditDetailActivity.EXTRA_SUBREDDIT_NAME_KEY,
+                        mPost.getSubredditName());
+                intent.setFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NEW_DOCUMENT);
                 mActivity.startActivity(intent);
             });
         
